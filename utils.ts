@@ -458,12 +458,13 @@ export async function applyPackageOverrides(
 	)
 	await $`git clean -fdxq` // remove current install
 
-	const agent = await detect({ cwd: dir, autoInstall: false })
+	// const agent = await detect({ cwd: dir, autoInstall: false })
 
-	// Remove version from agent string:
-	// yarn@berry => yarn
-	// pnpm@6, pnpm@7 => pnpm
-	const pm = agent?.split('@')[0]
+	// // Remove version from agent string:
+	// // yarn@berry => yarn
+	// // pnpm@6, pnpm@7 => pnpm
+	// const pm = agent?.split('@')[0]
+	const pm = 'pnpm'
 
 	if (pm === 'pnpm') {
 		const version = await $`pnpm --version`
